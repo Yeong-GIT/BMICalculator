@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace BMICalculator
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TabbedRecord : TabbedPage
+    {
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
+
+        async override protected void OnCurrentPageChanged()
+        {
+            base.OnCurrentPageChanged();
+
+            if (CurrentPage is ContentPage OverallRecordsTab)
+            {
+                base.OnAppearing();
+                displayRecord.ItemsSource = await firebaseHelper.GetAllBmiRecord();
+            }
+            else if (CurrentPage is ContentPage FindStatusTab)
+            {
+                base.OnAppearing();
+            }
+
+        }
+        async void OnFindRecord(object sender, EventArgs e)
+        {
+            showFindRecord.ItemsSource = await firebaseHelper.GetFindRecord(findRecord.Text);
+        }
+
+
+        public TabbedRecord()
+        {
+            InitializeComponent();
+        }
+    }
+}

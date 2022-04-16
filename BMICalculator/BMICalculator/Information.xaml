@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMICalculator.Information">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="Center">
+            <Label
+           Text="Underweight (below 18.5)"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           />
+            <Label
+           Text="Normal (18.5 - below 25)"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           />
+            <Label
+           Text="Overweight (25 - below 30)"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           />
+            <Label
+           Text="Obese (30 and above)"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
