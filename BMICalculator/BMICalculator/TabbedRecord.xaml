@@ -50,7 +50,8 @@
     <ContentPage Title="Find by Status" x:Name="FindStatusTab" >
         <ScrollView>
             <StackLayout>
-                <Entry x:Name="findRecord" Placeholder="Enter BMI Status"/>
+                <!--<Entry x:Name="findRecord" Placeholder="Enter BMI Status"/>-->
+                <Picker x:Name="findBmiStatus" Title="Select BMI Status" VerticalOptions="CenterAndExpand" />
                 <Button x:Name="btnFind" Text="Find" Clicked="OnFindRecord"/>
                 <ListView x:Name="showFindRecord" ItemsSource="{Binding DateRecorded}">
                     <ListView.Header>
@@ -81,5 +82,4 @@
         </ScrollView>
     </ContentPage>
 
-    <ContentPage Title="Tab 3" />
 </TabbedPage>

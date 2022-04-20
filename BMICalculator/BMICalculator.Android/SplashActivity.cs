@@ -8,7 +8,7 @@ using Android.OS;
 
 namespace BMICalculator.Droid
 {
-    [Activity(Label = "SplashActivity", Theme = "@style/Splash", MainLauncher = true)]
+    [Activity(Label = "BMI Calculator", Icon = "@drawable/ic_launcher", Theme = "@style/Splash", MainLauncher = true)]
     public class SplashActivity:Activity
     {
         public SplashActivity()

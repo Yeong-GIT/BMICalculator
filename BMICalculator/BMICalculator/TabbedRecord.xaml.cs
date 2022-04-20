@@ -13,6 +13,7 @@ namespace BMICalculator
     public partial class TabbedRecord : TabbedPage
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
+        string selectedFindBmiStatus;
 
         async override protected void OnCurrentPageChanged()
         {
@@ -31,13 +32,31 @@ namespace BMICalculator
         }
         async void OnFindRecord(object sender, EventArgs e)
         {
-            showFindRecord.ItemsSource = await firebaseHelper.GetFindRecord(findRecord.Text);
+            showFindRecord.ItemsSource = await firebaseHelper.GetFindRecord(selectedFindBmiStatus);
         }
 
 
         public TabbedRecord()
         {
             InitializeComponent();
+
+            findBmiStatus.Items.Add("Underweight");
+            findBmiStatus.Items.Add("Normal");
+            findBmiStatus.Items.Add("Overweight");
+            findBmiStatus.Items.Add("Obese");
+
+            findBmiStatus.SelectedIndexChanged += (sender, args) =>
+            {
+                if (findBmiStatus.SelectedIndex == -1)
+                {
+                }
+                else
+                {
+                    selectedFindBmiStatus = findBmiStatus.Items[findBmiStatus.SelectedIndex];
+                }
+            };
+
+
         }
     }
 }
